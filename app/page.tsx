@@ -5,13 +5,20 @@ import TopHeader from "@/components/TopHeader";
 import BottomNav, { NavTab } from "@/components/BottomNav";
 import Dashboard from "@/components/Dashboard";
 import Syllabus from "@/components/Syllabus";
+import CameraViewfinder from "@/components/CameraViewFinder";
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState<NavTab>("dashboard");
+  const [isCameraOpen, setIsCameraOpen] = useState(false);
+  const [capturedImage, setCapturedImage] = useState<string | null>(null);
 
-  const handleScanClick = () => {
-    // We will hook this directly to Screen 3 (Camera Viewfinder)
-    alert("Opening Camera Viewfinder...");
+  const handleCapture = (imageBlob: Blob, previewUrl: string) => {
+    console.log("Captured image blob size:", imageBlob.size);
+    setCapturedImage(previewUrl);
+    setIsCameraOpen(false);
+
+    // Switch tab to results to display grading
+    setActiveTab("results");
   };
 
 
@@ -26,7 +33,7 @@ export default function Home() {
         {/* Scrollable Content */}
         <div className="flex-1 overflow-y-auto pb-24 px-5">
           {activeTab === "dashboard" && (
-            <Dashboard onScanClick={handleScanClick} />
+            <Dashboard onScanClick={() => setIsCameraOpen(true)} />
           )}
           {activeTab === "syllabus" && (
             <Syllabus />
@@ -41,6 +48,14 @@ export default function Home() {
 
         {/* Bottom Navigation */}
         <BottomNav activeTab={activeTab} onTabChange={setActiveTab} />
+
+        {/* Screen 3: Fullscreen Camera Viewfinder Modal */}
+        {isCameraOpen && (
+          <CameraViewfinder
+            onCapture={handleCapture}
+            onClose={() => setIsCameraOpen(false)}
+          />
+        )}
       </div>
     </main>
   );
