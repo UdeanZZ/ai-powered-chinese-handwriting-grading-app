@@ -2,7 +2,7 @@
 
 > A modern Progressive Web App (PWA) designed for MOE Primary students to practice, capture, and receive instant AI-powered feedback on Chinese handwriting worksheets.
 
-🔗 **Live Deployment URL:** `https://your-deployment-url.vercel.app` *(Update with your Vercel link upon deployment)*
+🔗 **Live Deployment URL:** `https://ai-powered-chinese-handwriting-grad.vercel.app` 
 
 ---
 
