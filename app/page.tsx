@@ -45,15 +45,15 @@ export default function Home() {
 
 
   return (
-    <main className="min-h-screen bg-[#E5E7EB] flex justify-center items-start sm:py-6">
+    <main className="h-screen w-full bg-[#E5E7EB] flex items-center justify-center overflow-hidden sm:p-4">
       {/* Mobile Device Frame */}
-      <div className="w-full max-w-md min-h-screen sm:min-h-220 bg-[#F8F9FB] sm:rounded-[36px] sm:shadow-2xl flex flex-col relative overflow-hidden border border-gray-200/60">
+      <div className="w-full max-w-md h-full sm:h-215 sm:max-h-[94vh] bg-[#F8F9FB] sm:rounded-[40px] sm:shadow-2xl flex flex-col relative overflow-hidden border border-gray-200/60 sm:ring-8 sm:ring-black/5">
 
         {/* Top Header */}
         <TopHeader />
 
         {/* Scrollable Content */}
-        <div className="flex-1 overflow-y-auto pb-24 px-5">
+        <div className="flex-1 overflow-y-auto pb-24 px-5 no-scrollbar">
           {isGrading && (
             <div className="py-20 flex flex-col items-center justify-center text-center space-y-4">
               <div className="relative">
@@ -78,8 +78,8 @@ export default function Home() {
             <Syllabus />
           )}
           {!isGrading && activeTab === "results" && (
-            <ResultScreen 
-              onRetestMissed={() => setIsCameraOpen(true)} 
+            <ResultScreen
+              onRetestMissed={() => setIsCameraOpen(true)}
               liveData={gradingData}
             />
           )}
