@@ -77,7 +77,7 @@ export default function ResultsScreen({ onRetestMissed, liveData }: ResultsScree
     });
 
     return (
-        <div className="space-y-4 pt-1 pb-10">
+        <div className="space-y-4 pt-6 pb-10">
             {/* 1. Header & Status Badge */}
             <div className="flex items-start justify-between px-1">
                 <div>

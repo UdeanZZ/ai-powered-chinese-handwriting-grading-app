@@ -49,8 +49,8 @@ export default function Home() {
       {/* Mobile Device Frame */}
       <div className="w-full max-w-md h-full sm:h-215 sm:max-h-[94vh] bg-[#F8F9FB] sm:rounded-[40px] sm:shadow-2xl flex flex-col relative overflow-hidden border border-gray-200/60 sm:ring-8 sm:ring-black/5">
 
-        {/* Top Header */}
-        <TopHeader />
+        {/* Top Header (Hidden on Results screen) */}
+        {activeTab !== "results" && <TopHeader />}
 
         {/* Scrollable Content */}
         <div className="flex-1 overflow-y-auto pb-24 px-5 no-scrollbar">
