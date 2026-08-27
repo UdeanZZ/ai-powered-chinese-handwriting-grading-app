@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AI Chinese Handwriting Grader (PWA)",
-  description: "AI-Powered Chinese Handwriting Grading App for Primary Students",
+  title: "AI Chinese Handwriting Grader | MOE Primary PWA",
+  description: "AI-Powered Chinese Handwriting Grading App for Primary Students, powered by Gemini 1.5 Flash & Next.js",
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
