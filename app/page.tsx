@@ -6,6 +6,7 @@ import BottomNav, { NavTab } from "@/components/BottomNav";
 import Dashboard from "@/components/Dashboard";
 import Syllabus from "@/components/Syllabus";
 import CameraViewfinder from "@/components/CameraViewFinder";
+import ResultScreen from "@/components/ResultScreen";
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState<NavTab>("dashboard");
@@ -39,10 +40,10 @@ export default function Home() {
             <Syllabus />
           )}
           {activeTab === "results" && (
-            <div className="py-4 text-center text-gray-500">Practice / Results (Screen 4)</div>
+            <ResultScreen onRetestMissed={() => setIsCameraOpen(true)} />
           )}
-          {activeTab === "favorites" && (
-            <div className="py-4 text-center text-gray-500">Favorites & Profile</div>
+          {activeTab === "premium" && (
+            <div className="py-4 text-center text-gray-500">Premium</div>
           )}
         </div>
 

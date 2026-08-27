@@ -3,7 +3,7 @@
 import React from "react";
 import { Home, BookOpen, FileText, Star } from "lucide-react";
 
-export type NavTab = "dashboard" | "syllabus" | "results" | "favorites";
+export type NavTab = "dashboard" | "syllabus" | "results" | "premium";
 
 interface BottomNavProps {
     activeTab: NavTab;
@@ -15,7 +15,7 @@ export default function BottomNav({ activeTab, onTabChange }: BottomNavProps) {
         { id: "dashboard", label: "Dashboard", icon: Home },
         { id: "syllabus", label: "Syllabus", icon: BookOpen },
         { id: "results", label: "Practice", icon: FileText },
-        { id: "favorites", label: "Favorites", icon: Star },
+        { id: "premium", label: "Premium", icon: Star },
     ] as const;
 
     return (
@@ -27,7 +27,13 @@ export default function BottomNav({ activeTab, onTabChange }: BottomNavProps) {
                     return (
                         <button
                             key={item.id}
-                            onClick={() => onTabChange(item.id)}
+                            onClick={() => {
+                                if (item.id === "premium") {
+                                    alert("⭐ Premium features are coming soon! Stay tuned.");
+                                    return;
+                                }
+                                onTabChange(item.id);
+                            }}
                             className={`flex flex-col items-center justify-center py-1 px-3 rounded-xl transition-all duration-200 ${isActive
                                 ? "text-emerald-700 font-semibold scale-105"
                                 : "text-gray-400 hover:text-gray-600"
