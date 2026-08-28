@@ -66,10 +66,12 @@ export async function POST(req: NextRequest) {
             const genAI = new GoogleGenerativeAI(apiKey);
             // Supported model names in Google AI Studio
             const candidateModels = [
-                "gemini-1.5-flash-latest",
+                "gemini-3.6-flash",
+                "gemini-3.7-flash",
+                "gemini-3.5-flash",
+                "gemini-flash-latest",
                 "gemini-2.0-flash",
                 "gemini-1.5-flash",
-                "gemini-1.5-pro-latest",
             ];
 
             const prompt = `
@@ -110,6 +112,7 @@ You MUST respond strictly with a valid JSON array of objects without Markdown co
                     ]);
 
                     const rawText = response.response.text().trim();
+                    console.log("rawText : ", rawText)
                     const cleanedJson = rawText
                         .replace(/^```json/i, "")
                         .replace(/^```/i, "")
